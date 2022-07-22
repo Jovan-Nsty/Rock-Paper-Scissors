@@ -1,6 +1,6 @@
 // storage for either ‘Rock’, ‘Paper’ or ‘Scissors’
-let computerChoice = '';
-let playerChoice = 'rock';
+let computerChoice;
+let playerChoice;
 
 // function that will randomly return either ‘Rock’, ‘Paper’ or ‘Scissors’
 function getComputerChoice() {
@@ -14,8 +14,6 @@ function getComputerChoice() {
         computerChoice = 'scissors';
     }
 }
-
-getComputerChoice();
 
 // function that plays a single round of Rock Paper Scissors
 function playRound(playerChoice, computerChoice) {
@@ -52,3 +50,14 @@ function playRound(playerChoice, computerChoice) {
         }
     }
 }
+
+// function to play five rounds
+function game() {
+    for (let i = 0; i < 5; i++) {
+        playerChoice = prompt('Rock Paper Scissors?').toLowerCase();
+        getComputerChoice();
+        console.log(playRound(playerChoice, computerChoice));
+    }
+}
+
+game();
