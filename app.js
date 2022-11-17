@@ -61,24 +61,38 @@ function playRound(playerChoice, computerChoice) {
     }
 }
 
+// determine players choice
+const rock = document.getElementById('rock');
+const paper = document.getElementById('paper');
+const scissors = document.getElementById('scissors');
+
+rock.onclick = () => {
+    playerChoice = 'rock';
+}
+
+paper.onclick = () => {
+    playerChoice = 'paper';
+}
+
+scissors.onclick = () => {
+    playerChoice = 'scissors';
+}
+
 // function to play five rounds
-// function game() {
-//     for (let i = 0; i < 5; i++) {
-//         playerChoice = prompt('Rock Paper Scissors?').toLowerCase();
-//         getComputerChoice();
-//         console.log(playRound(playerChoice, computerChoice));
-//     }
+function game() {
+    for (let i = 0; i < 5; i++) {
+        getComputerChoice();
+        console.log(playRound(playerChoice, computerChoice));
+    }
 
-//     console.log('FINAL SCORE:');
-//     if (playerCount > computerCount) {
-//         console.log(`You Won! Your score is ${playerCount} : ${computerCount}`);
-//     } else if (playerCount < computerCount) {
-//         console.log(`You Lost! Your score is ${playerCount} : ${computerCount}`);
-//     } else {
-//         console.log('By Jolly! It\`s a tie!');
-//     }
+    console.log('FINAL SCORE:');
+    if (playerCount > computerCount) {
+        console.log(`You Won! Your score is ${playerCount} : ${computerCount}`);
+    } else if (playerCount < computerCount) {
+        console.log(`You Lost! Your score is ${playerCount} : ${computerCount}`);
+    } else {
+        console.log('By Jolly! It\`s a tie!');
+    }
+}
 
-
-// }
-
-// game();
+game();

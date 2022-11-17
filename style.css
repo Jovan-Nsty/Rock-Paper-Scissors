@@ -31,9 +31,27 @@ body {
     border-radius: 15px;
 }
 
-#buttons {
+.buttons {
     padding-top: 60px;
     width: 50%;
     display: flex;
     justify-content: space-around;
+}
+
+.buttons button {
+    width: 100px;
+    padding: 15px;
+    border-radius: 15px;
+    color: #fff;
+    background-color: #111827;
+    border: 1px solid #fff;
+    transition: color 0.25s, border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+}
+
+.buttons button:hover {
+    color: #fee440;
+    border: 1px solid #fee440;
+    box-shadow: 0 0.5em 0.5em -0.4em #fee440;
+    transform: translateY(-0.25em);
+    cursor: pointer;
 }
