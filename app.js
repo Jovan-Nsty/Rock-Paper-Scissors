@@ -66,17 +66,17 @@ const rock = document.getElementById('rock');
 const paper = document.getElementById('paper');
 const scissors = document.getElementById('scissors');
 
-rock.onclick = () => {
+rock.addEventListener('click', () => {
     playerChoice = 'rock';
-}
+});
 
-paper.onclick = () => {
+paper.addEventListener('click', () => {
     playerChoice = 'paper';
-}
+});
 
-scissors.onclick = () => {
+scissors.addEventListener('click', () => {
     playerChoice = 'scissors';
-}
+});
 
 // function to play five rounds
 function game() {
