@@ -5,6 +5,7 @@ let playerChoice;
 // score counters
 let computerCount = 0;
 let playerCount = 0;
+let roundCounter = 0;
 
 // function that will randomly return either ‘Rock’, ‘Paper’ or ‘Scissors’
 function getComputerChoice() {
@@ -24,17 +25,17 @@ function playRound(playerChoice, computerChoice) {
 
     // check for a tie
     if (playerChoice === computerChoice) {
-        return 'It\'s a Tie!';
+        return `${moveInfo()} It\'s a tie!`;
     }
 
     // check for rock
     if (playerChoice === 'rock') {
         if (computerChoice === 'scissors') {
             playerCount++;
-            return 'You Won! Rock beats Scissors.';
+            return `${moveInfo()} You Won! Rock beats Scissors.`;
         } else {
             computerCount++;
-            return 'You Lost. Paper beats Rock.';
+            return `${moveInfo()} You Lost. Paper beats Rock.`;
         }
     }
 
@@ -42,10 +43,10 @@ function playRound(playerChoice, computerChoice) {
     if (playerChoice === 'paper') {
         if (computerChoice === 'rock') {
             playerCount++;
-            return 'You Won! Paper beats Rock.';
+            return `${moveInfo()} You Won! Paper beats Rock.`;
         } else {
             computerCount++;
-            return 'You Lost! Scissors beats Paper.';
+            return `${moveInfo()} You Lost! Scissors beats Paper.`;
         }
     }
 
@@ -53,10 +54,10 @@ function playRound(playerChoice, computerChoice) {
     if (playerChoice === 'scissors') {
         if (computerChoice === 'paper') {
             playerCount++;
-            return 'You Won! Scissors beats Paper.';
+            return `${moveInfo()} You Won! Scissors beats Paper.`;
         } else {
             computerCount++;
-            return 'You Lost! Rock beats Scissors';
+            return `${moveInfo()} You Lost! Rock beats Scissors`;
         }
     }
 }
@@ -68,31 +69,54 @@ const scissors = document.getElementById('scissors');
 
 rock.addEventListener('click', () => {
     playerChoice = 'rock';
+    game();
 });
 
 paper.addEventListener('click', () => {
     playerChoice = 'paper';
+    game();
 });
 
 scissors.addEventListener('click', () => {
     playerChoice = 'scissors';
+    game();
 });
 
 // function to play five rounds
 function game() {
-    for (let i = 0; i < 5; i++) {
-        getComputerChoice();
-        console.log(playRound(playerChoice, computerChoice));
+    roundCounter++;
+    getComputerChoice();
+
+    let result = playRound(playerChoice, computerChoice);
+    let round = `ROUND ${roundCounter}`;
+    let score = `${playerCount} : ${computerCount}`;
+
+    const displayRound = document.getElementById('round');
+    const displayResult = document.getElementById('result');
+    const displayScore = document.getElementById('score');
+
+    if (roundCounter === 5) {
+        round = 'FINAL ROUND';
+        const message = document.getElementById('message');
+        if (playerCount > computerCount) {
+            message.innerHTML = 'VICTORY';
+        } else if (playerCount < computerCount) {
+            message.innerHTML = 'YOU LOSE';
+        } else {
+            message.innerHTML = 'IT\'S A TIE';
+        }
+
+        roundCounter = 0;
+        computerCount = 0;
+        playerCount = 0;
+        message.removeAttribute('#message');
     }
 
-    console.log('FINAL SCORE:');
-    if (playerCount > computerCount) {
-        console.log(`You Won! Your score is ${playerCount} : ${computerCount}`);
-    } else if (playerCount < computerCount) {
-        console.log(`You Lost! Your score is ${playerCount} : ${computerCount}`);
-    } else {
-        console.log('By Jolly! It\`s a tie!');
-    }
+    displayRound.innerHTML = round;
+    displayResult.innerHTML = result;
+    displayScore.innerHTML = score;
 }
 
-game();
+function moveInfo() {
+    return `You choose ${playerChoice}. Computer choose ${computerChoice}. `;
+}

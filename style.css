@@ -29,6 +29,24 @@ body {
     height: 50%;
     background-color: #8da9c4;
     border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#round {
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+#score {
+    margin-top: 20px;
+}
+
+#message {
+    height: 20px;
+    margin-top: 20px;
 }
 
 .buttons {
