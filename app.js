@@ -7,58 +7,20 @@ let computerCount = 0;
 let playerCount = 0;
 let roundCounter = 0;
 
-// function that will randomly return either ‘Rock’, ‘Paper’ or ‘Scissors’
+// determine computer choise’
 function getComputerChoice() {
     let randomNumber = Math.floor(Math.random() * 3) + 1;
 
-    if (randomNumber === 1) {
-        computerChoice = 'rock';
-    } else if (randomNumber === 2) {
-        computerChoice = 'paper';
-    } else {
-        computerChoice = 'scissors';
-    }
-}
-
-// function that plays a single round of Rock Paper Scissors
-function playRound(playerChoice, computerChoice) {
-
-    // check for a tie
-    if (playerChoice === computerChoice) {
-        return `${moveInfo()} It\'s a tie!`;
-    }
-
-    // check for rock
-    if (playerChoice === 'rock') {
-        if (computerChoice === 'scissors') {
-            playerCount++;
-            return `${moveInfo()} You Won! Rock beats Scissors.`;
-        } else {
-            computerCount++;
-            return `${moveInfo()} You Lost. Paper beats Rock.`;
-        }
-    }
-
-    // check for paper
-    if (playerChoice === 'paper') {
-        if (computerChoice === 'rock') {
-            playerCount++;
-            return `${moveInfo()} You Won! Paper beats Rock.`;
-        } else {
-            computerCount++;
-            return `${moveInfo()} You Lost! Scissors beats Paper.`;
-        }
-    }
-
-    // check for scissors
-    if (playerChoice === 'scissors') {
-        if (computerChoice === 'paper') {
-            playerCount++;
-            return `${moveInfo()} You Won! Scissors beats Paper.`;
-        } else {
-            computerCount++;
-            return `${moveInfo()} You Lost! Rock beats Scissors`;
-        }
+    switch (randomNumber) {
+        case 1:
+            computerChoice = 'rock';
+            break;
+        case 2:
+            computerChoice = 'paper';
+            break;
+        case 3:
+            computerChoice = 'scissors';
+            break;
     }
 }
 
@@ -82,9 +44,55 @@ scissors.addEventListener('click', () => {
     game();
 });
 
-// function to play five rounds
+// function that plays a single round of Rock Paper Scissors
+function playRound(playerChoice, computerChoice) {
+
+    // check for a tie
+    if (playerChoice === computerChoice) {
+        return `${moveInfo()} It\'s a tie!`;
+    } else {
+        roundCounter++;
+        // check for rock
+        if (playerChoice === 'rock') {
+            if (computerChoice === 'scissors') {
+                playerCount++;
+                return `${moveInfo()} You Won! Rock beats Scissors.`;
+            } else {
+                computerCount++;
+                return `${moveInfo()} You Lost. Paper beats Rock.`;
+            }
+        }
+
+        // check for paper
+        if (playerChoice === 'paper') {
+            if (computerChoice === 'rock') {
+                playerCount++;
+                return `${moveInfo()} You Won! Paper beats Rock.`;
+            } else {
+                computerCount++;
+                return `${moveInfo()} You Lost! Scissors beats Paper.`;
+            }
+        }
+
+        // check for scissors
+        if (playerChoice === 'scissors') {
+            if (computerChoice === 'paper') {
+                playerCount++;
+                return `${moveInfo()} You Won! Scissors beats Paper.`;
+            } else {
+                computerCount++;
+                return `${moveInfo()} You Lost! Rock beats Scissors`;
+            }
+        }
+    }
+}
+
+function moveInfo() {
+    return `You choose ${playerChoice}. Computer choose ${computerChoice}. `;
+}
+
+// function to play five rounds and to assign the values
 function game() {
-    roundCounter++;
     getComputerChoice();
 
     let result = playRound(playerChoice, computerChoice);
@@ -94,29 +102,23 @@ function game() {
     const displayRound = document.getElementById('round');
     const displayResult = document.getElementById('result');
     const displayScore = document.getElementById('score');
+    const displayMessage = document.getElementById('message');
 
-    if (roundCounter === 5) {
-        round = 'FINAL ROUND';
-        const message = document.getElementById('message');
-        if (playerCount > computerCount) {
-            message.innerHTML = 'VICTORY';
-        } else if (playerCount < computerCount) {
-            message.innerHTML = 'YOU LOSE';
-        } else {
-            message.innerHTML = 'IT\'S A TIE';
-        }
-
-        roundCounter = 0;
-        computerCount = 0;
-        playerCount = 0;
-        message.removeAttribute('#message');
-    }
-
+    displayMessage.innerHTML = '';
     displayRound.innerHTML = round;
     displayResult.innerHTML = result;
     displayScore.innerHTML = score;
-}
 
-function moveInfo() {
-    return `You choose ${playerChoice}. Computer choose ${computerChoice}. `;
+    if (roundCounter === 5) {
+        if (playerCount > computerCount) {
+            displayMessage.innerHTML = 'VICTORY';
+        } else if (playerCount < computerCount) {
+            displayMessage.innerHTML = 'DEFEAT';
+        }
+
+        // reset
+        roundCounter = 0;
+        computerCount = 0;
+        playerCount = 0;
+    }
 }
