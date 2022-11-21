@@ -40,6 +40,10 @@ body {
     line-height: 26.4px;
 }
 
+h1 {
+    font-size: 50px;
+}
+
 #rock-heading {
     color: #c22525;
 }
@@ -54,8 +58,6 @@ body {
 }
 
 #main {
-    padding-top: 100px;
-    padding-bottom: 100px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -67,7 +69,17 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 15px;
+    height: 415px;
+}
+
+#round,
+#message {
+    font-size: 30px;
+}
+
+#result,
+#score {
+    font-size: 23px;
 }
 
 #round,
@@ -76,4 +88,50 @@ body {
 #message {
     margin-bottom: 15px;
     margin-top: 15px;
+    height: 22px;
+}
+
+.buttons {
+    width: 1100px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+#rock,
+#paper,
+#scissors {
+    height: 290px;
+    width: 290px;
+    border-radius: 50%;
+    border: 8px solid #000;
+    background-size: 340px;
+    background-position: center;
+}
+
+#rock {
+    background-image: url('/images/rock.png');
+}
+
+#rock:hover {
+    border: 8px solid #c22525;
+}
+
+#paper {
+    background-image: url('/images/paper.png');
+}
+
+#paper:hover {
+    border: 8px solid #0a7533;
+}
+
+#scissors {
+    background-image: url('/images/scissors.png');
+}
+
+#scissors:hover {
+    border: 8px solid #1a57b3;
 }
