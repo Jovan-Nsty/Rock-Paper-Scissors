@@ -112,8 +112,10 @@ function game() {
     if (roundCounter === 5) {
         if (playerCount > computerCount) {
             displayMessage.innerHTML = 'VICTORY';
+            displayMessage.style.cssText = 'color: green';
         } else if (playerCount < computerCount) {
             displayMessage.innerHTML = 'DEFEAT';
+            displayMessage.style.cssText = 'color: red';
         }
 
         // reset
