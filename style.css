@@ -4,20 +4,58 @@
     box-sizing: border-box;
 }
 
-html,
 body {
-    background-color: #111827;
-    height: 100%;
+    background-image: url('images/background.jpg');
+    font-family: "Carter One";
+    font-size: 20px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 20px;
+
+}
+
+#container {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 250px;
+    flex-direction: column;
+}
+
+#heading-main {
+    display: flex;
+    width: 70%;
+    justify-content: space-around;
+}
+
+#rock-heading,
+#paper-heading,
+#scissors-heading {
+    font-family: "Sigmar One";
+    font-size: 45px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+    line-height: 26.4px;
+}
+
+#rock-heading {
+    color: #c22525;
+}
+
+#paper-heading {
+    color: #0a7533;
+    padding-left: 7%;
+}
+
+#scissors-heading {
+    color: #1a57b3;
 }
 
 #main {
-    width: 800px;
-    height: 500px;
-    background-color: #003566;
-    border-radius: 15px;
+    padding-top: 100px;
+    padding-bottom: 100px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -25,51 +63,17 @@ body {
 }
 
 #display {
-    width: 80%;
-    height: 50%;
-    background-color: #8da9c4;
-    border-radius: 15px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 15px;
 }
 
-#round {
-    margin-bottom: 20px;
-    font-size: 20px;
-}
-
-#score {
-    margin-top: 20px;
-}
-
+#round,
+#result,
+#score,
 #message {
-    height: 20px;
-    margin-top: 20px;
-}
-
-.buttons {
-    padding-top: 60px;
-    width: 50%;
-    display: flex;
-    justify-content: space-around;
-}
-
-.buttons button {
-    width: 100px;
-    padding: 15px;
-    border-radius: 15px;
-    color: #fff;
-    background-color: #111827;
-    border: 1px solid #fff;
-    transition: color 0.25s, border-color 0.25s, box-shadow 0.25s, transform 0.25s;
-}
-
-.buttons button:hover {
-    color: #fee440;
-    border: 1px solid #fee440;
-    box-shadow: 0 0.5em 0.5em -0.4em #fee440;
-    transform: translateY(-0.25em);
-    cursor: pointer;
+    margin-bottom: 15px;
+    margin-top: 15px;
 }
