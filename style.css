@@ -113,7 +113,7 @@ button:hover {
 }
 
 #rock {
-    background-image: url('/images/rock.png');
+    background-image: url('images/rock.png');
 }
 
 #rock:hover {
@@ -121,7 +121,7 @@ button:hover {
 }
 
 #paper {
-    background-image: url('/images/paper.png');
+    background-image: url('images/paper.png');
 }
 
 #paper:hover {
@@ -129,7 +129,7 @@ button:hover {
 }
 
 #scissors {
-    background-image: url('/images/scissors.png');
+    background-image: url('images/scissors.png');
 }
 
 #scissors:hover {
