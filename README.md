@@ -1,6 +1,18 @@
-# rock-paper-scissors
-Building my very first JavaScript app.
+# Rock Paper Scissors
 
-I'd like to thank Vecteezy for making these sleek images available for public use!
+## Preview
+![screenshot](images/rockapaperscissors.png)
 
-vecteezy.com
+## Description
+* A simple Rock Paper Scissors game.
+
+## Made with
+* HTML, CSS and JavaScript.
+
+## Visit website
+* [Link](https://jovan-nsty.github.io/rock-paper-scissors/)
+
+## Purpose
+* The purpose of this project was to build my very first JavaScript app.
+
+* This project was done following The Odin Project curriculum.
